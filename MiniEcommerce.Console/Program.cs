@@ -156,7 +156,7 @@ public sealed class Menu(TextReader entrada, TextWriter saida)
 
         foreach (var item in itens)
         {
-            saida.WriteLine($"[{item.Produto.Id}] {item.Quantidade} x {item.Produto.Nome} = {Moeda(item.Subtotal)}");
+            saida.WriteLine($"[{item.Produto.Id}] {item.Quantidade} x {item.Produto.Nome} ({Moeda(item.Produto.Preco)}) = {Moeda(item.Subtotal)}");
         }
 
         saida.WriteLine($"Subtotal: {Moeda(carrinho.Subtotal)}");
