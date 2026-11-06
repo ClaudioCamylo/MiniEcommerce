@@ -1,5 +1,5 @@
 
-namespace MiniEcommerce;
+namespace MiniEcommerce.Dominio;
 
 public sealed class Pedido
 {
@@ -25,10 +25,7 @@ public sealed class Pedido
 
         foreach (var item in itens)
         {
-            if (item.Quantidade > item.Produto.Estoque)
-            {
-                throw new InvalidOperationException($"Estoque insuficiente para {item.Produto.Nome}.");
-            }
+            item.Produto.VerificarDisponibilidade(item.Quantidade);
         }
 
         var resumo = itens.Select(item => new ItemPedido(

@@ -1,5 +1,5 @@
 
-namespace MiniEcommerce;
+namespace MiniEcommerce.Dominio;
 
 public sealed class Catalogo
 {

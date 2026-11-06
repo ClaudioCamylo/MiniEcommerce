@@ -1,5 +1,4 @@
-using MiniEcommerce;
-using Xunit;
+using MiniEcommerce.Dominio;
 
 namespace MiniEcommerce.Tests;
 

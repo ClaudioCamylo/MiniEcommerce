@@ -1,6 +1,7 @@
 
 using System.Globalization;
 using System.Text;
+using MiniEcommerce.Dominio;
 
 namespace MiniEcommerce;
 

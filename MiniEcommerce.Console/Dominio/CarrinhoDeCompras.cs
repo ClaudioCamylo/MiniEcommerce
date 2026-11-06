@@ -1,5 +1,5 @@
 
-namespace MiniEcommerce;
+namespace MiniEcommerce.Dominio;
 
 public sealed class CarrinhoDeCompras
 {
@@ -18,12 +18,10 @@ public sealed class CarrinhoDeCompras
         }
 
         var quantidadeAtual = itens.GetValueOrDefault(produto)?.Quantidade ?? 0;
-        if (quantidade > produto.Estoque - quantidadeAtual)
-        {
-            throw new InvalidOperationException($"Estoque insuficiente para {produto.Nome}.");
-        }
+        var quantidadeTotal = (long)quantidadeAtual + quantidade;
+        produto.VerificarDisponibilidade(quantidadeTotal);
 
-        var novoItem = new ItemCarrinho(produto, quantidadeAtual + quantidade);
+        var novoItem = new ItemCarrinho(produto, (int)quantidadeTotal);
         var subtotalOutrosItens = itens.Values.Where(item => item.Produto != produto).Sum(item => item.Subtotal);
 
         // Confere se o subtotal cabe em decimal antes de alterar o carrinho.

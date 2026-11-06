@@ -1,5 +1,5 @@
 
-namespace MiniEcommerce;
+namespace MiniEcommerce.Dominio;
 
 public sealed class Produto
 {
@@ -30,6 +30,14 @@ public sealed class Produto
     public string Nome { get; }
     public decimal Preco { get; }
     public int Estoque { get; private set; }
+
+    internal void VerificarDisponibilidade(long quantidade)
+    {
+        if (quantidade > Estoque)
+        {
+            throw new InvalidOperationException($"Estoque insuficiente para {Nome}.");
+        }
+    }
 
     internal void BaixarEstoque(int quantidade) => Estoque -= quantidade;
 }
