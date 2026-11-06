@@ -30,4 +30,6 @@ public sealed class Produto
     public string Nome { get; }
     public decimal Preco { get; }
     public int Estoque { get; private set; }
+
+    internal void BaixarEstoque(int quantidade) => Estoque -= quantidade;
 }
