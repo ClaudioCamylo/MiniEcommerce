@@ -61,4 +61,4 @@ Em uma cópia extraída do ZIP, use `git switch --detach <hash>` para visitar um
 
 ## Entrega no GitHub
 
-A publicação em um repositório público está pendente de autorização. O ZIP inclui o repositório local completo na branch `main`, com o histórico acessível após a extração.
+A entrega está na branch `main` do repositório público. Você também pode consultar o histórico na cópia extraída do ZIP. [MiniEcommerce no GitHub](https://github.com/ClaudioCamylo/MiniEcommerce)
