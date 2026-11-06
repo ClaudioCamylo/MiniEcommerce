@@ -3,9 +3,16 @@ namespace MiniEcommerce;
 
 public sealed class Catalogo
 {
-    public Produto Cadastrar(string nome, decimal preco, int estoque) => throw new NotImplementedException();
+    private readonly List<Produto> produtos = new();
 
-    public Produto? Buscar(int id) => throw new NotImplementedException();
+    public Produto Cadastrar(string nome, decimal preco, int estoque)
+    {
+        var produto = new Produto(produtos.Count + 1, nome, preco, estoque);
+        produtos.Add(produto);
+        return produto;
+    }
 
-    public IReadOnlyList<Produto> Listar() => throw new NotImplementedException();
+    public Produto? Buscar(int id) => produtos.Find(produto => produto.Id == id);
+
+    public IReadOnlyList<Produto> Listar() => produtos.ToArray();
 }
